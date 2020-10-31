@@ -1,4 +1,4 @@
-pragma solidity ^0.4.17;
+pragma solidity ^0.5.16;
 
 contract Ballot {
     string public name;
@@ -18,7 +18,7 @@ contract Ballot {
 
     bool public closed;
 
-    constructor(string _name, bytes32[] _proposals) public {
+    constructor(string memory _name, bytes32[] memory _proposals) public {
         chairman = msg.sender;
         closed = false;
         name = _name;
@@ -62,7 +62,7 @@ contract Ballot {
         return proposals[winningProposal()].name;
     }
 
-    function info() public view returns (string name_, address chairman_, bool closed_, bytes32 winner_, bytes32[] proposals_) {
+    function info() public view returns (string memory name_, address chairman_, bool closed_, bytes32  winner_, bytes32[] memory proposals_) {
         name_ = name;
         chairman_ = chairman;
         closed_ = closed;
